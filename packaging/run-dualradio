@@ -1,0 +1,8 @@
+#!/bin/sh
+# APPLaunch wrapper for DualRadio. APPLaunch normally starts apps as root; if it doesn't,
+# use passwordless sudo when available (the app shows a banner if it ends up without root).
+APP=/usr/share/APPLaunch/apps/dualradio/dualradio.py
+if [ "$(id -u)" -ne 0 ] && sudo -n true >/dev/null 2>&1; then
+    exec sudo -n /usr/bin/python3 "$APP" "$@"
+fi
+exec /usr/bin/python3 "$APP" "$@"

@@ -1,0 +1,19 @@
+{
+  "package_name": "dualradio",
+  "app_name": "DualRadio",
+  "bin_name": "run-dualradio",
+  "version": "1.4.1",
+  "description": "Wi-Fi + Bluetooth manager for the built-in radio and a USB dongle side by side.",
+  "store": {
+    "title": "DualRadio",
+    "summary": "Built-in + USB Wi-Fi/Bluetooth manager: monitor mode, survey, hotspot, BT pairing",
+    "description": "Manage the CardputerZero's built-in radio and a USB Wi-Fi/Bluetooth dongle side by side.\n\nWi-Fi\n- Connect, disconnect each radio or both; per-radio saved networks (compatible with WiFi USB's <ifname>-<ssid> profiles); passwords remembered and reused across radios.\n- Scan with 2.4/5 GHz band filter and full network details: channel, width, 802.11 standard, WPA2/WPA3/PMF, ciphers, clients and channel load, WPS router model, every AP/BSSID with vendor.\n- Choose the main network other apps use (route metrics); auto-fallback to built-in Wi-Fi when the dongle is unplugged.\n- Monitor mode on the dongle with an all-band AP survey (band, channel, RSSI, security, clients), channel lock and pcap capture for Wireshark.\n- Hotspot from the built-in radio sharing the dongle's connection; ping and download speed test per radio.\n- Overlapping 2.4 GHz channel warning when both radios share the band.\n\nBluetooth (built-in and dongle separately)\n- Classic + BLE scan with live RSSI; details: class, appearance, services, manufacturer, iBeacon/Apple/Microsoft adverts, distance estimate.\n- Pair (on-screen passkey confirm/PIN), connect, trust, remove; signal 'hunt' view to locate a device.\n\nEsc = back, hold Esc = exit.",
+    "categories": ["System Tools"],
+    "screenshots": ["store/screenshots/1_wifi.png", "store/screenshots/2_networks.png",
+                    "store/screenshots/3_monitor.png", "store/screenshots/4_bluetooth.png"],
+    "icon": "store/icon.png",
+    "license": "MIT",
+    "permissions": {"network": true, "additional_hardware": true, "background_service": false,
+                    "camera": false, "external_display": false, "imu": false, "microphone": false}
+  }
+}

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=DualRadio
+Exec=bin/run-dualradio
+Terminal=false
+Icon=share/images/dualradio.png
+Type=Application

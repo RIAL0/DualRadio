@@ -1,0 +1,128 @@
+BSS 00:1a:2b:3c:4d:06(on wlan1) -- associated
+	freq: 5180.0
+	beacon interval: 100 TUs
+	capability: ESS Privacy ShortSlotTime (0x0411)
+	signal: -38.00 dBm
+	last seen: 140 ms ago
+	SSID: HomeNet
+	DS Parameter set: channel 36
+	Country: AU	Environment: Indoor/Outdoor
+	BSS Load:
+		 * station count: 4
+		 * channel utilisation: 31/255
+	HT operation:
+		 * primary channel: 36
+		 * secondary channel offset: above
+	VHT operation:
+		 * channel width: 1 (80 MHz)
+	HE capabilities:
+		HE MAC Capabilities (0x000801185018):
+	WPS:	 * Version: 1.0
+		 * Wi-Fi Protected Setup State: 2 (Configured)
+		 * Manufacturer: Technicolor
+		 * Model: R1
+		 * Device name: Home Router
+	RSN:	 * Version: 1
+		 * Group cipher: CCMP
+		 * Pairwise ciphers: CCMP
+		 * Authentication suites: PSK SAE
+		 * Capabilities: 1-PTKSA-RC 1-GTKSA-RC MFP-capable (0x0080)
+BSS 00:1a:2b:3c:4d:05(on wlan1)
+	freq: 2462.0
+	beacon interval: 100 TUs
+	capability: ESS Privacy ShortSlotTime (0x0411)
+	signal: -45.00 dBm
+	last seen: 140 ms ago
+	SSID: HomeNet
+	DS Parameter set: channel 11
+	RSN:	 * Version: 1
+		 * Group cipher: CCMP
+		 * Pairwise ciphers: CCMP
+		 * Authentication suites: PSK
+		 * Capabilities: 1-PTKSA-RC 1-GTKSA-RC MFP-capable (0x0080)
+BSS 4a:b4:24:11:22:33(on wlan1)
+	freq: 5220.0
+	beacon interval: 100 TUs
+	capability: ESS Privacy ShortSlotTime (0x0411)
+	signal: -71.00 dBm
+	last seen: 140 ms ago
+	SSID: HomeNet
+	DS Parameter set: channel 44
+	RSN:	 * Version: 1
+		 * Group cipher: CCMP
+		 * Pairwise ciphers: CCMP
+		 * Authentication suites: PSK SAE
+		 * Capabilities: 1-PTKSA-RC 1-GTKSA-RC MFP-capable (0x0080)
+BSS 10:20:30:40:50:60(on wlan1)
+	freq: 5745.0
+	beacon interval: 100 TUs
+	capability: ESS Privacy ShortSlotTime (0x0411)
+	signal: -62.00 dBm
+	last seen: 140 ms ago
+	SSID: Neighbour-5G
+	DS Parameter set: channel 149
+	RSN:	 * Version: 1
+		 * Group cipher: CCMP
+		 * Pairwise ciphers: CCMP
+		 * Authentication suites: SAE
+		 * Capabilities: 1-PTKSA-RC 1-GTKSA-RC MFP-capable (0x0080)
+BSS 9c:3d:cf:00:11:22(on wlan1)
+	freq: 2437.0
+	beacon interval: 100 TUs
+	capability: ESS Privacy ShortSlotTime (0x0411)
+	signal: -70.00 dBm
+	last seen: 140 ms ago
+	SSID: NETGEAR42
+	DS Parameter set: channel 6
+	RSN:	 * Version: 1
+		 * Group cipher: CCMP
+		 * Pairwise ciphers: CCMP
+		 * Authentication suites: PSK
+		 * Capabilities: 1-PTKSA-RC 1-GTKSA-RC MFP-capable (0x0080)
+BSS c4:e9:84:12:34:56(on wlan1)
+	freq: 5220.0
+	beacon interval: 100 TUs
+	capability: ESS Privacy ShortSlotTime (0x0411)
+	signal: -79.00 dBm
+	last seen: 140 ms ago
+	SSID: TP-Link_5G_8E
+	DS Parameter set: channel 44
+	RSN:	 * Version: 1
+		 * Group cipher: CCMP
+		 * Pairwise ciphers: CCMP
+		 * Authentication suites: PSK
+		 * Capabilities: 1-PTKSA-RC 1-GTKSA-RC MFP-capable (0x0080)
+BSS 00:11:22:33:44:55(on wlan1)
+	freq: 2412.0
+	beacon interval: 100 TUs
+	capability: ESS ShortSlotTime (0x0411)
+	signal: -80.00 dBm
+	last seen: 140 ms ago
+	SSID: Cafe Free WiFi
+	DS Parameter set: channel 1
+BSS 62:45:b0:aa:bb:cc(on wlan1)
+	freq: 2437.0
+	beacon interval: 100 TUs
+	capability: ESS Privacy ShortSlotTime (0x0411)
+	signal: -66.00 dBm
+	last seen: 140 ms ago
+	SSID: iPhone (Alex)
+	DS Parameter set: channel 6
+	RSN:	 * Version: 1
+		 * Group cipher: CCMP
+		 * Pairwise ciphers: CCMP
+		 * Authentication suites: PSK
+		 * Capabilities: 1-PTKSA-RC 1-GTKSA-RC MFP-capable (0x0080)
+BSS e0:63:da:01:02:03(on wlan1)
+	freq: 5500.0
+	beacon interval: 100 TUs
+	capability: ESS Privacy ShortSlotTime (0x0411)
+	signal: -84.00 dBm
+	last seen: 140 ms ago
+	SSID: Home-Office
+	DS Parameter set: channel 100
+	RSN:	 * Version: 1
+		 * Group cipher: CCMP
+		 * Pairwise ciphers: CCMP
+		 * Authentication suites: PSK
+		 * Capabilities: 1-PTKSA-RC 1-GTKSA-RC MFP-capable (0x0080)
