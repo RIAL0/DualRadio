@@ -39,7 +39,7 @@ try:
 except ImportError:
     np = None
 
-VERSION = "1.4.1"
+VERSION = "1.4.2"
 W, H = 320, 170
 LONG_PRESS_S = 0.7
 
@@ -2290,6 +2290,41 @@ def launch_info():
     return f"uid={os.getuid()} euid={os.geteuid()} parent={parent}({os.getppid()}) user={os.environ.get('USER', '?')}"
 
 
+def show_needs_root(fb, kb):
+    """Launched without root and couldn't get it (run-dualradio already tried passwordless
+    sudo). Instead of starting half-working behind a blank/"loading" screen, tell the user
+    how to enable it: a one-time, by-hand setup over SSH. Store apps can't ship a sudoers
+    file, so this screen points at setup-sudo.sh, which the user runs themselves."""
+    wm.log("dualradio: no root and no passwordless sudo - showing setup help")
+    img = Image.new("RGB", (W, H), BG)
+    d = ImageDraw.Draw(img)
+    header(d, "DualRadio needs admin rights")
+    msg = ("Controlling the radios needs admin rights, and they aren't enabled for your "
+           "user. Over SSH, run this once, then relaunch from the menu:")
+    y = HDR + 3
+    for ln in wrap_words(d, msg, F_SMALL, W - 16)[:5]:
+        d.text((8, y), ln, font=F_SMALL, fill=TEXT)
+        y += F_SMALL.size + 2
+    y += 4
+    cmd = "sudo sh /usr/share/APPLaunch/apps/dualradio/setup-sudo.sh"
+    clines = wrap_chars(d, cmd, F_MONO, W - 24)
+    box_h = len(clines) * (F_MONO.size + 2) + 7
+    d.rounded_rectangle([6, y, W - 7, y + box_h], radius=5, fill=PANEL, outline=ACCENT)
+    yy = y + 4
+    for ln in clines:
+        d.text((12, yy), ln, font=F_MONO, fill=ACCENT)
+        yy += F_MONO.size + 2
+    footer(d, "hold Esc to exit", "setup needed")
+    fb.show(img)
+    end = time.time() + 300
+    while time.time() < end:
+        for k in kb.poll(0.3):
+            if k.esc() or k.enter():
+                return
+        if kb.esc_long():
+            return
+
+
 def main():
     args = sys.argv[1:]
     if args[:1] == ["--preview"]:
@@ -2304,11 +2339,16 @@ def main():
         keytest()
         return 0
     fb, kb = Framebuffer(find_fb()), Keyboard()
-    app = App(fb, kb)
-    app.rooted = rooted
     wm.log(f"dualradio launch: {launch_info()}")
     if not rooted:
-        app.toast("not running as root — see /var/log/dualradio.log", BAD)
+        # No root, and run-dualradio found no passwordless sudo to get it. Show the one-time
+        # setup instead of starting half-working behind a blank "loading" screen.
+        show_needs_root(fb, kb)
+        fb.close()
+        kb.close()
+        return 0
+    app = App(fb, kb)
+    app.rooted = rooted
 
     def on_signal(_s, _f):
         app.stop.set()

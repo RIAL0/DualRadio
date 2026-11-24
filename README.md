@@ -227,13 +227,18 @@ From the **CardputerZero app store**, or manually:
 
 ```bash
 # from your computer
-scp dualradio_1.4.1_arm64.deb <user>@<zero-ip>:/tmp/
+scp dualradio_1.4.2_arm64.deb <user>@<zero-ip>:/tmp/
 # on the Zero
-sudo apt install /tmp/dualradio_1.4.1_arm64.deb
+sudo apt install /tmp/dualradio_1.4.2_arm64.deb
 ```
 Updating works the same way with a newer `.deb`. To remove it: `sudo apt remove dualradio`.
 
 Requires Pi OS (Bookworm/Trixie, arm64) with NetworkManager, BlueZ and `iw`. Debian dependencies are installed automatically. It can coexist with *WiFi USB*.
+
+**Admin rights:** DualRadio has to run as root to control the radios. Most CardputerZeros already have passwordless `sudo` for the device user (set when the image is flashed), so it just works. If the app instead opens to a **"needs admin rights"** screen — which happens on devices where that wasn't set up, e.g. a custom username — run its one-time setup over SSH, then relaunch from the menu:
+```bash
+sudo sh /usr/share/APPLaunch/apps/dualradio/setup-sudo.sh
+```
 
 **Upgrading from 1.3.x:** 1.4.0 no longer installs system hook files (the app store doesn't allow them), but dpkg keeps the old ones. Remove them once:
 ```bash
@@ -264,7 +269,7 @@ sudo rm -f /etc/NetworkManager/dispatcher.d/90-dualradio /etc/sysctl.d/90-dualra
 | Scan shows only the network you're connected to | `grep "scan wlan0" /var/log/dualradio.log \| tail -3` (shows NM / kernel cache / direct counts) |
 | Which hidden names were revealed | `grep revealed /var/log/dualradio.log` |
 | Dongle Bluetooth won't power on | `rfkill list; bluetoothctl list` |
-| "Not running as root" banner | APPLaunch normally starts apps as root; otherwise passwordless `sudo` is used. Check the `dualradio launch` line in the log |
+| Stuck on "loading", or a "needs admin rights" screen | No passwordless `sudo` for your user. Run once: `sudo sh /usr/share/APPLaunch/apps/dualradio/setup-sudo.sh`, then relaunch. Check the `dualradio launch` line in the log for `uid`/`euid` |
 | Wrong radio used for internet | `ip route` (main radio = metric 110) |
 | Survey settings stuck | Settings → Re-test, or `sudo rm /etc/dualradio/caps.json` |
 

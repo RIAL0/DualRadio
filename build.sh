@@ -17,8 +17,9 @@ done
 install -m 0644 src/preview_scan.txt "$A/apps/$PKG/"
 install -m 0644 src/fonts/* "$A/apps/$PKG/fonts/"
 install -m 0755 packaging/run-dualradio "$A/bin/run-dualradio"
+install -m 0755 packaging/setup-sudo.sh "$A/apps/$PKG/setup-sudo.sh"
 install -m 0644 packaging/dualradio.desktop "$A/applications/dualradio.desktop"
-install -m 0644 icon.png "$A/share/images/dualradio.png"
+install -m 0644 store/icon.png "$A/share/images/dualradio.png"
 ln -s /usr/share/APPLaunch/apps/$PKG/wifimgr.py "$STAGE/usr/bin/dualradio-cli"
 install -m 0755 packaging/postinst packaging/postrm "$STAGE/DEBIAN/"
 cat > "$STAGE/DEBIAN/control" <<CTRL
